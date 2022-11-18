@@ -3,8 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsWhatsapp, BsLinkedin, BsGithub, BsYoutube } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
+import { GrDocumentPdf } from "react-icons/gr";
+import { useState } from "react";
+
+const linkDownload =
+  "https://drive.google.com/file/d/1Ne1T23ruaPV1Cb7PyJs9MdZF1IA759OW/view?usp=share_link";
 
 export default function Home() {
+  const [download, setDownload] = useState("");
+
   return (
     <div>
       <Head>
@@ -24,10 +31,17 @@ export default function Home() {
         />
         <div className="block text-left ml-5">
           <h2 className="text-white font-thin">FRONTEND DEVELOPER</h2>
-          <h1 className="text-white text-6xl font-black">
-            RICARDO ALBUQUERQUE
-          </h1>
-          <div className="mt-12">
+          <div className="flex">
+            <h1 className="text-white text-6xl font-black flex">
+              RICARDO ALBUQUERQUE
+            </h1>
+            <Link target='_blank' href={linkDownload}>
+              
+              <GrDocumentPdf className="w-7 h-7 cursor-pointer" />
+              
+            </Link>
+          </div>
+           <div className="mt-12">
             <h2 className="text-lg">ENTRE EM CONTATO</h2>
             <div className="flex gap-10">
               <Link target="_blank" href="https://wa.me/5561983555195">
@@ -185,7 +199,6 @@ export default function Home() {
       <div className="mx-auto p-5 max-w-5xl border-t-2 border-gray-500 pb-5">
         <h2 className="text-lg">EXPERIÊNCIA ACADÊMICA</h2>
         <h4>Cursos Fullstack</h4>
-        <p>+ Complementares gratuitos no Youtube.</p>
         <ul className="list-disc text-gray-500 ml-5 mt-3">
           <li>HTML5 E CSS3 MODULO 1 - Curso em vídeo [40 horas]</li>
           <li>HTML5 E CSS3 MODULO 2 - Curso em vídeo [40 horas]</li>
@@ -196,8 +209,10 @@ export default function Home() {
           <li>DISCOVERY - Rocketseat [40 horas]</li>
           <li>IGNITE - Rocketseat</li>
         </ul>
-    <h2 className="mt-5">Ciências Econômicas - Faculdades integrads UNIP</h2>
-    <p>De 2010 a 2013</p>
+        <h2 className="mt-5">
+          Ciências Econômicas - Faculdades integrads UNIP
+        </h2>
+        <p>De 2010 a 2013</p>
       </div>
     </div>
   );
